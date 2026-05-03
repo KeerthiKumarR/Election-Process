@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Election Process Education</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <div class="header-inner">
+      <div class="header-badge">📋 Civic Education</div>
+      <h1>Understanding the <em>Election Process</em></h1>
+      <p>Learn how elections work — from voter registration to the final results — with interactive guides and an AI assistant.</p>
+      <div class="header-stats">
+        <div class="stat-pill">📅 8-Step Timeline</div>
+        <div class="stat-pill">🧠 7-Question Quiz</div>
+        <div class="stat-pill">📖 16 Key Terms</div>
+        <div class="stat-pill">💬 AI Assistant</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── NAVIGATION TABS ── -->
+  <div class="nav-wrapper">
+    <nav>
+      <button class="tab-btn active" onclick="switchTab('timeline', this)">
+        <span class="tab-icon">📅</span> Timeline
+      </button>
+      <button class="tab-btn" onclick="switchTab('howvoting', this)">
+        <span class="tab-icon">🗳️</span> How Voting Works
+      </button>
+      <button class="tab-btn" onclick="switchTab('assistant', this)">
+        <span class="tab-icon">💬</span> Ask AI
+      </button>
+      <button class="tab-btn" onclick="switchTab('quiz', this)">
+        <span class="tab-icon">🧠</span> Quiz
+      </button>
+      <button class="tab-btn" onclick="switchTab('glossary', this)">
+        <span class="tab-icon">📖</span> Glossary
+      </button>
+    </nav>
+  </div>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main>
+
+    <!-- TIMELINE SECTION -->
+    <div class="section active" id="tab-timeline">
+      <div class="section-header">
+        <h2>Election Timeline</h2>
+        <p>Tap each step to expand and learn what happens at every stage of the election cycle.</p>
+      </div>
+      <div class="timeline" id="timeline-container">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- HOW VOTING WORKS SECTION -->
+    <div class="section" id="tab-howvoting">
+      <div class="section-header">
+        <h2>How Voting Works</h2>
+        <p>The key building blocks of a fair and democratic election explained simply.</p>
+      </div>
+      <div class="voting-grid" id="voting-cards-container">
+        <!-- Rendered by JS -->
+      </div>
+      <div class="systems-section">
+        <h3 class="sub-heading">Electoral Systems Compared</h3>
+        <div class="systems-grid" id="systems-container">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- AI ASSISTANT SECTION -->
+    <div class="section" id="tab-assistant">
+      <div class="section-header">
+        <h2>Ask the Election Assistant</h2>
+        <p>Have a question about elections or voting? Our AI assistant is here to help — nonpartisan and factual.</p>
+      </div>
+
+      <div class="chat-wrapper">
+        <div class="chat-window" id="chat-window">
+          <div class="chat-empty" id="chat-empty">
+            <div class="chat-empty-icon">🗳️</div>
+            <p>Ask any question about elections, voting, or democratic processes.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ask-box">
+        <div class="ask-label">Quick questions</div>
+        <div class="quick-qs" id="quick-qs">
+          <!-- Rendered by JS -->
+        </div>
+        <div class="ask-input-row">
+          <textarea class="ask-input" id="user-input" rows="1" placeholder="e.g. What is the Electoral College?"></textarea>
+          <button class="ask-btn" id="send-btn" onclick="sendQuestion()">
+            Ask <span class="ask-arrow">↗</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUIZ SECTION -->
+    <div class="section" id="tab-quiz">
+      <div class="section-header">
+        <h2>Test Your Knowledge</h2>
+        <p>Answer these questions to check your understanding of the election process.</p>
+      </div>
+      <div class="score-bar">
+        <div class="score-bar-left">
+          <span class="score-label">Score</span>
+          <strong class="score-value" id="score-display">0 / 0</strong>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+        </div>
+        <span class="q-progress" id="q-progress">Question 1 of 7</span>
+      </div>
+      <div id="quiz-area">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- GLOSSARY SECTION -->
+    <div class="section" id="tab-glossary">
+      <div class="section-header">
+        <h2>Election Glossary</h2>
+        <p>Key terms you'll encounter when learning about elections. Tap any term to expand its definition.</p>
+      </div>
+      <div class="search-bar">
+        <svg class="search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" class="search-input" placeholder="Search terms..." oninput="filterGlossary(this.value)" />
+        <span class="search-count" id="search-count">16 terms</span>
+      </div>
+      <div class="glossary-list" id="glossary-list">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <p>Election Process Education &mdash; Built for civic literacy and democratic understanding.</p>
+      <p class="footer-note">Information is general and nonpartisan. Processes may vary by country and jurisdiction.</p>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
